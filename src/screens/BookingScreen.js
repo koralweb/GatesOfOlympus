@@ -3,12 +3,13 @@ import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
-  TextInput,
 } from 'react-native';
 import Header from '../components/Header';
 import ThankYou from '../components/ThankYou';
+import products from '../mobx/products';
 
 const BookingScreen = ({navigation}) => {
   const [showThankYou, setShowThankYou] = useState(false);
@@ -16,29 +17,33 @@ const BookingScreen = ({navigation}) => {
     <View>
       <Header navigation={navigation} />
 
-      <Text style={styles.title}>Table reservation</Text>
+      <Text style={styles.title}>Κράτηση τραπεζιού</Text>
       <View style={styles.cont}>
-        <Text style={styles.list}>First name</Text>
+        <Text style={styles.list}>Ονομα</Text>
+        <TextInput style={styles.inner} placeholder="Εισάγετε το όνομα σας" />
+        <Text style={styles.list}>Επίθετο</Text>
         <TextInput
           style={styles.inner}
-          placeholder="Enter your Ferst name"></TextInput>
-        <Text style={styles.list}>Last name</Text>
+          placeholder="Εισαγάγετε το Επώνυμό σας"
+        />
+        <Text style={styles.list}>Αριθμός κινητού</Text>
         <TextInput
           style={styles.inner}
-          placeholder="Enter your Last name"></TextInput>
-        <Text style={styles.list}>Mobaile number</Text>
+          placeholder="Πληκτρολόγησε τον αριθμό του τηλεφώνου σου"
+        />
+        <Text style={styles.list}>Αριθμός πίνακα</Text>
         <TextInput
           style={styles.inner}
-          placeholder="Enter your Mobaile number"></TextInput>
-        <Text style={styles.list}>Table namber</Text>
-        <TextInput
-          style={styles.inner}
-          placeholder="Enter your Table namber"></TextInput>
+          placeholder="Εισαγάγετε τον αριθμό του πίνακα"
+        />
       </View>
       <TouchableOpacity
         style={styles.btn}
-        onPress={() => setShowThankYou(true)}>
-        <Text style={styles.btnText}>Reservation</Text>
+        onPress={() => {
+          setShowThankYou(true);
+          products.clearCart();
+        }}>
+        <Text style={styles.btnText}>Κράτηση</Text>
       </TouchableOpacity>
 
       {showThankYou && <ThankYou navigation={navigation} />}
@@ -69,6 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'silver',
     borderRadius: 15,
     paddingLeft: 10,
+    height: 35,
   },
   btn: {
     width: '80%',

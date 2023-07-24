@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import products from '../mobx/products';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {observer} from 'mobx-react-lite';
@@ -13,7 +13,7 @@ const Product = ({prod}) => {
       <View style={styles.desc}>
         <Text style={styles.title}>{prod.title}</Text>
         <View style={styles.wrp}>
-          <Text style={styles.price}>{prod.price}р</Text>
+          <Text style={styles.price}>{Math.round(prod.price)}€</Text>
           {prod.added ? (
             <TouchableOpacity onPress={() => products.removeProduct(prod.id)}>
               <FontAwesomeIcon

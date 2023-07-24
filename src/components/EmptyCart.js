@@ -1,16 +1,10 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  Dimensions,
-} from 'react-native';
+import {Dimensions, ImageBackground, StyleSheet, Text} from 'react-native';
 
 const EmptyCart = ({prod}) => {
   return (
     <ImageBackground style={styles.cont} source={require('../assets/bg.jpg')}>
-      <Text style={styles.text}>Корзина пустая</Text>
+      <Text style={styles.text}>Το καλάθι είναι άδειο</Text>
     </ImageBackground>
   );
 };
@@ -28,7 +22,7 @@ const styles = StyleSheet.create({
     color: '#6F3B98',
     fontSize: 45,
     fontWeight: '700',
-    alignSelf: 'center',
+    textAlign: 'center',
     marginTop: 30,
   },
 });

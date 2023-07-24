@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
   Image,
   ScrollView,
+  StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import Header from '../components/Header';
 import products from '../mobx/products';
@@ -24,7 +24,7 @@ const ShopScreen = ({navigation}) => {
       <ScrollView>
         <View style={styles.cont}>
           <TouchableOpacity
-            onPress={() => navigation.push(`Cart`)}
+            onPress={() => navigation.push('Cart')}
             style={styles.pantry}>
             <FontAwesomeIcon
               color={'white'}
@@ -32,21 +32,21 @@ const ShopScreen = ({navigation}) => {
               icon={'shopping-basket'}
               style={styles.pantryIcon}
             />
-            <Text style={styles.list}>Pantry</Text>
+            <Text style={styles.list}>Ντουλάπι</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => navigation.push(`Show`)}
+            onPress={() => navigation.push('Show')}
             style={styles.points}>
             <Image
               style={styles.img}
               source={require('../assets/pointer.png')}
             />
-            <Text style={styles.list}>Points</Text>
+            <Text style={styles.list}>Πόντοι</Text>
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.title}>What's hot?</Text>
+        <Text style={styles.title}>Τι είναι ζεστό</Text>
         {renderProducts()}
       </ScrollView>
     </>

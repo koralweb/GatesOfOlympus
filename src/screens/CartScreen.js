@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  ScrollView,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Header from '../components/Header';
 import products from '../mobx/products';
 import Product from '../components/Product';
@@ -25,13 +18,15 @@ const CartScreen = ({navigation}) => {
     <>
       <Header navigation={navigation} />
       {products.list.some(el => el.added) ? (
-        <View>
-          <Text style={styles.title}>Корзина</Text>
+        <>
+          <Text style={styles.title}>Καροτσάκι</Text>
           <ScrollView>{renderProducts()}</ScrollView>
-          <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>Оформить заказ</Text>
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={() => navigation.push('Booking')}>
+            <Text style={styles.btnText}>Ολοκλήρωση αγοράς</Text>
           </TouchableOpacity>
-        </View>
+        </>
       ) : (
         <EmptyCart />
       )}
@@ -43,7 +38,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '500',
-    marginBottom: 30,
+    marginBottom: 10,
     color: 'black',
     alignSelf: 'center',
   },
@@ -55,7 +50,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 30,
+    marginTop: 20,
+    marginBottom: 20,
   },
   btnText: {
     color: 'white',

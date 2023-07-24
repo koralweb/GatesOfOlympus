@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Image,
-  View,
-  ImageBackground,
-} from 'react-native';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import Header from '../components/Header';
 
 const ContactScreen = ({navigation}) => {
@@ -14,16 +7,18 @@ const ContactScreen = ({navigation}) => {
     <View style={styles.wrp}>
       <Header navigation={navigation} />
       <View style={styles.cont}>
-        <Text style={styles.title}>Contacts</Text>
+        <Text style={styles.title}>Επαφές</Text>
       </View>
 
       <View style={styles.item}>
-        <Text style={styles.text}>Adress</Text>
-        <Text style={styles.text}>Index</Text>
-        <Text style={styles.text}>Mobail number</Text>
-        <Text style={styles.text}>Data</Text>
+        <Text style={styles.text}>3A Veikou St Makrigyianni 117-42 Athens</Text>
+        <Text style={styles.text}>117-42</Text>
+        <Text style={styles.text}>+30 210 9235811</Text>
+        <Text style={styles.text}>Είσοδος από το πάρκινγκ</Text>
       </View>
-      <ImageBackground source={require('../assets/contBg.jpg')}>
+      <ImageBackground
+        style={{flex: 1}}
+        source={require('../assets/contBg.jpg')}>
         <Image style={styles.img} source={require('../assets/icon1.png')} />
       </ImageBackground>
     </View>
@@ -36,6 +31,7 @@ const styles = StyleSheet.create({
   },
   wrp: {
     backgroundColor: '#FFFFFF',
+    flex: 1,
   },
   title: {
     fontSize: 20,
@@ -59,7 +55,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 180,
     alignSelf: 'center',
-    marginTop: 170,
+    marginTop: 'auto',
   },
 });
 

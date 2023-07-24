@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import Menu from './Menu';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {useRoute} from '@react-navigation/native';
 
 const Header = ({navigation}) => {
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(useRoute().name === 'Home');
+
   return (
     <View style={styles.cont}>
       <TouchableOpacity onPress={() => setMenu(true)}>

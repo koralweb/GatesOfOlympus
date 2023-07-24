@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import Header from '../components/Header';
 import translationsList from '../data/translationsList';
 
@@ -15,7 +8,7 @@ const ShowScreen = ({navigation}) => {
     return translationsList
       .filter(el => el.date >= new Date().getDate())
       .map(item => (
-        <View style={styles.cart}>
+        <View style={styles.cart} key={Math.random()}>
           <Text style={styles.list}>{item.liga}</Text>
           <Text style={styles.comand}>{item.team1}</Text>
           <Text style={styles.comand}>{item.team2}</Text>
@@ -31,9 +24,8 @@ const ShowScreen = ({navigation}) => {
   return (
     <View>
       <Header navigation={navigation} />
-      <Text style={styles.title}>Let`s get started!</Text>
 
-      <Text style={styles.desc}>Sports broadcasts</Text>
+      <Text style={styles.desc}>Αθλητικές μεταδόσεις</Text>
       <ScrollView>
         <View key={Math.random()} style={styles.cont}>
           {renderItems()}
@@ -63,6 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#6F3B98',
     marginLeft: 30,
+    marginTop: 20,
   },
   cart: {
     width: '45%',
