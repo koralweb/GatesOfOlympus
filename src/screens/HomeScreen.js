@@ -1,8 +1,13 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import Header from '../components/Header';
 
-const HomeScreen = () => {
-  return <></>;
+const HomeScreen = ({navigation}) => {
+  return (
+    <>
+      <Header navigation={navigation} />
+    </>
+  );
 };
 
 const styles = StyleSheet.create({});
