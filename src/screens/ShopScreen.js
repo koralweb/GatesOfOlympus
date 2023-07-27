@@ -15,7 +15,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 const ShopScreen = ({navigation}) => {
   const renderProducts = () => {
     return products.list.map(prod => {
-      return <Product key={prod.title} prod={prod} />;
+      return <Product key={prod.productTitle} prod={prod} />;
     });
   };
   return (

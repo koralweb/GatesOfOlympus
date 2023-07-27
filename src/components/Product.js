@@ -6,14 +6,14 @@ import {observer} from 'mobx-react-lite';
 
 const Product = ({prod}) => {
   return (
-    <View key={prod.title} style={styles.cont}>
+    <View style={styles.cont}>
       <View>
         <Image style={styles.image} source={prod.image} />
       </View>
       <View style={styles.desc}>
-        <Text style={styles.title}>{prod.title}</Text>
+        <Text style={styles.title}>{prod.productTitle}</Text>
         <View style={styles.wrp}>
-          <Text style={styles.price}>{Math.round(prod.price)}€</Text>
+          <Text style={styles.price}>{Math.round(prod.productPrice)}€</Text>
           {prod.added ? (
             <TouchableOpacity onPress={() => products.removeProduct(prod.id)}>
               <FontAwesomeIcon

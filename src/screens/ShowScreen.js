@@ -6,16 +6,16 @@ import translationsList from '../data/translationsList';
 const ShowScreen = ({navigation}) => {
   const renderItems = () => {
     return translationsList
-      .filter(el => el.date >= new Date().getDate())
+      .filter(el => el.gameDate >= new Date().getDate())
       .map(item => (
         <View style={styles.cart} key={Math.random()}>
-          <Text style={styles.list}>{item.liga}</Text>
-          <Text style={styles.comand}>{item.team1}</Text>
-          <Text style={styles.comand}>{item.team2}</Text>
+          <Text style={styles.list}>{item.ligaName}</Text>
+          <Text style={styles.comand}>{item.team1Name}</Text>
+          <Text style={styles.comand}>{item.team2Name}</Text>
           <View style={styles.inner}>
             <Image style={styles.img} source={require('../assets/timer.png')} />
-            <Text style={styles.time}>{item.time}</Text>
-            <Text style={styles.time}>{item.date}.07.2023</Text>
+            <Text style={styles.time}>{item.gameTime}</Text>
+            <Text style={styles.time}>{item.gameDate}.07.2023</Text>
           </View>
         </View>
       ));
